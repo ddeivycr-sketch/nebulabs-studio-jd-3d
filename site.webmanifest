@@ -1,0 +1,15 @@
+{
+  "name": "NebuLabs Studio J.D 3D",
+  "short_name": "NebuLabs 3D",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "assets/images/marca/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
