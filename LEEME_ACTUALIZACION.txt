@@ -1,0 +1,7 @@
+ACTUALIZACION NEBULABS - 100 PRODUCTOS
+
+1. Este paquete NO incluye assets/js/config.js, por lo que no reemplaza WhatsApp, Instagram ni correo.
+2. Sube el CONTENIDO de esta carpeta a la raiz de tu repositorio GitHub.
+3. GitHub reemplazara app.js, catalogo.js y styles.css y agregara las nuevas imagenes.
+4. Al terminar, espera unos minutos y actualiza la pagina con Ctrl+F5.
+5. El catalogo queda con 100 referencias y cada producto tiene un ID comercial visible tipo NBL-SOP-001.

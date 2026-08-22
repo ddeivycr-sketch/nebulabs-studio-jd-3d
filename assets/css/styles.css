@@ -1885,3 +1885,6 @@ h3 {
     top: 190px;
   }
 }
+
+/* ID comercial de producto */
+.product-code{display:inline-flex;align-items:center;width:max-content;margin-bottom:8px;padding:5px 9px;border-radius:999px;background:rgba(124,58,237,.10);color:#5b21b6;font-size:.74rem;font-weight:800;letter-spacing:.05em;border:1px solid rgba(124,58,237,.14)}

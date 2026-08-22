@@ -107,7 +107,7 @@
   function enlaceWhatsapp(producto = null) {
     const mensajeBase = config.mensajeWhatsapp || "Hola, quiero cotizar un producto.";
     const detalle = producto
-      ? `\n\nProducto: ${producto.nombre}\nColor deseado: \nTamano deseado: \nCantidad: `
+      ? `\n\nID: ${producto.codigo || producto.id}\nProducto: ${producto.nombre}\nColor deseado: \nTamano deseado: \nCantidad: `
       : "\n\nProducto o idea: \nColor deseado: \nTamano deseado: \nCantidad: ";
 
     return `https://wa.me/${telefonoLimpio()}?text=${encodeURIComponent(mensajeBase + detalle)}`;
@@ -262,7 +262,7 @@
       const coincideCategoria =
         estado.categoria === "Todos" || producto.categoria === estado.categoria;
       const contenido = normalizar(
-        `${producto.nombre} ${producto.categoria} ${producto.descripcion}`
+        `${producto.codigo || ""} ${producto.nombre} ${producto.categoria} ${producto.descripcion}`
       );
       const coincideBusqueda = !termino || contenido.includes(termino);
       return coincideCategoria && coincideBusqueda;
@@ -324,6 +324,7 @@
         </div>
 
         <div class="product-content">
+          <div class="product-code">${escapeHtml(producto.codigo || producto.id)}</div>
           <span class="product-category">${escapeHtml(producto.categoria)}</span>
           <h3>${escapeHtml(producto.nombre)}</h3>
           <p class="product-description">${escapeHtml(producto.descripcion)}</p>
@@ -416,6 +417,10 @@
     elementos.modalNote.textContent = `${config.avisoPrecios || ""} ${config.avisoMedidas || ""}`;
 
     elementos.modalInfo.innerHTML = `
+      <div class="modal-info-item">
+        <span>ID</span>
+        <strong>${escapeHtml(producto.codigo || producto.id)}</strong>
+      </div>
       <div class="modal-info-item">
         <span>Unicolor / unidad</span>
         <strong>${escapeHtml(formatearPrecio(producto.precioUnicolor))}</strong>

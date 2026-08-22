@@ -2,10 +2,9 @@
    CATÁLOGO DE PRODUCTOS - NEBULABS STUDIO J.D 3D
    ------------------------------------------------------------
    CÓMO ACTUALIZAR:
-   1. Duplica un bloque completo entre { y }.
-   2. Cambia id, nombre, categoría, imagen y descripción.
+   1. Cada producto tiene un codigo comercial visible (NBL-XXX-000).
+   2. No repitas codigo ni id al crear una referencia nueva.
    3. Los precios se escriben como número, sin puntos ni signo $.
-      Ejemplo: 18000
    4. Si no conoces un precio, deja null: la web mostrará "Cotizar".
    5. La imagen debe quedar dentro de assets/images/productos/.
    6. medidaEstimada: true agrega el símbolo ~ a la medida.
@@ -14,20 +13,6 @@
    ============================================================ */
 
 window.PRODUCTOS_NEBULABS = [
-  {
-    "id": "soporte-celular-animales",
-    "nombre": "Soporte para celular de animal",
-    "categoria": "Soportes",
-    "imagen": "assets/images/productos/soporte-celular-animales.webp",
-    "descripcion": "Modelo individual con diseño de animal. Puedes elegir perro, oso, conejo, tortuga, mamut o tigre. El valor corresponde a una unidad.",
-    "precioUnicolor": 11000,
-    "precioMulticolor": 14000,
-    "altoCm": 10,
-    "largoCm": 11,
-    "medidaEstimada": false,
-    "destacado": true,
-    "nuevo": false
-  },
   {
     "id": "esqueleto-trex",
     "nombre": "Esqueleto T-Rex articulado",
@@ -40,7 +25,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 24,
     "medidaEstimada": false,
     "destacado": true,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-ESQ-001"
   },
   {
     "id": "esqueleto-triceratops",
@@ -54,7 +40,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 17,
     "medidaEstimada": false,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-ESQ-002"
   },
   {
     "id": "esqueleto-mamut",
@@ -68,7 +55,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 15,
     "medidaEstimada": false,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-ESQ-003"
   },
   {
     "id": "esqueleto-cocodrilo",
@@ -82,7 +70,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 25,
     "medidaEstimada": false,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-ESQ-004"
   },
   {
     "id": "esqueleto-camaleon",
@@ -96,7 +85,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 13,
     "medidaEstimada": false,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-ESQ-005"
   },
   {
     "id": "esqueleto-conejo",
@@ -110,7 +100,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 11,
     "medidaEstimada": false,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-ESQ-006"
   },
   {
     "id": "dragon-articulado",
@@ -124,7 +115,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 21,
     "medidaEstimada": false,
     "destacado": true,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-COL-001"
   },
   {
     "id": "goblin-articulado",
@@ -138,7 +130,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 11,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-FAN-001"
   },
   {
     "id": "tarantula-articulada",
@@ -152,7 +145,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 18,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-ART-001"
   },
   {
     "id": "momia-articulada",
@@ -166,7 +160,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 5,
     "medidaEstimada": false,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-ART-002"
   },
   {
     "id": "dinosaurio-trex-articulado",
@@ -180,7 +175,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 19,
     "medidaEstimada": false,
     "destacado": true,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-DIN-001"
   },
   {
     "id": "dinosaurio-triceratops-articulado",
@@ -194,7 +190,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 15,
     "medidaEstimada": false,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-DIN-002"
   },
   {
     "id": "dinosaurio-braquiosaurio",
@@ -208,7 +205,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 22,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-DIN-003"
   },
   {
     "id": "robot-articulado",
@@ -222,7 +220,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 8,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-ART-003"
   },
   {
     "id": "astronautas-articulados",
@@ -236,7 +235,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 8,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-COL-002"
   },
   {
     "id": "samurai-articulado",
@@ -250,7 +250,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 10,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-COL-003"
   },
   {
     "id": "alien-articulado",
@@ -264,7 +265,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 8,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-COL-004"
   },
   {
     "id": "gato-esfinge-articulado",
@@ -278,7 +280,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 20,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-ANI-001"
   },
   {
     "id": "leon-articulado",
@@ -292,7 +295,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 20,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-ANI-002"
   },
   {
     "id": "canguro-boxeador",
@@ -306,7 +310,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 14,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-ANI-003"
   },
   {
     "id": "rana-articulada",
@@ -320,7 +325,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 16,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-ANI-004"
   },
   {
     "id": "pony-articulado",
@@ -334,7 +340,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 18,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-FAN-002"
   },
   {
     "id": "zombie-articulado",
@@ -348,7 +355,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 8,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-TEM-001"
   },
   {
     "id": "tortuga-calabaza",
@@ -362,7 +370,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 14,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": false
+    "nuevo": false,
+    "codigo": "NBL-TEM-002"
   },
   {
     "id": "robot-gigante",
@@ -376,7 +385,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 30,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-NOV-001"
   },
   {
     "id": "felinos-articulados",
@@ -390,7 +400,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 18,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-NOV-002"
   },
   {
     "id": "criatura-fantastica",
@@ -404,7 +415,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 14,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-NOV-003"
   },
   {
     "id": "mini-criaturas-kawaii",
@@ -418,7 +430,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 8,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-NOV-004"
   },
   {
     "id": "pato-guerrero",
@@ -432,7 +445,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 15,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-NOV-005"
   },
   {
     "id": "coleccion-electrica",
@@ -446,7 +460,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 10,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-NOV-006"
   },
   {
     "id": "criaturas-donut",
@@ -460,7 +475,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 12,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-NOV-007"
   },
   {
     "id": "esqueletos-trex-premium",
@@ -474,7 +490,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 26,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-NOV-008"
   },
   {
     "id": "unicornio-segmentado",
@@ -488,7 +505,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 16,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-NOV-009"
   },
   {
     "id": "llavero-dragon-mini",
@@ -502,7 +520,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 8,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-LLA-001"
   },
   {
     "id": "majin-buu-musculoso",
@@ -516,7 +535,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 14,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-COL-005"
   },
   {
     "id": "ajedrez-galactico",
@@ -530,7 +550,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 28,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-JUE-001"
   },
   {
     "id": "bulbasaur-decorativo",
@@ -544,7 +565,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 18,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-COL-006"
   },
   {
     "id": "blastoise-coleccion",
@@ -558,7 +580,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 18,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-COL-007"
   },
   {
     "id": "charizard-monitor",
@@ -572,7 +595,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 17,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-ACC-001"
   },
   {
     "id": "chimuelo-monitor",
@@ -586,7 +610,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 16,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-ACC-002"
   },
   {
     "id": "darth-vader-coleccion",
@@ -600,7 +625,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 8,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-COL-008"
   },
   {
     "id": "esqueleto-diplodocus",
@@ -614,7 +640,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 35,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-ESQ-007"
   },
   {
     "id": "elevador-modular-monitor",
@@ -628,7 +655,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 55,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-HOG-001"
   },
   {
     "id": "espada-banana-retractil",
@@ -642,7 +670,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 65,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-ACC-003"
   },
   {
     "id": "espada-retractil-katana",
@@ -656,7 +685,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 70,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-ACC-004"
   },
   {
     "id": "estatua-anubis",
@@ -670,7 +700,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 18,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-DEC-001"
   },
   {
     "id": "fantasma-travieso",
@@ -684,7 +715,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 12,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-DEC-002"
   },
   {
     "id": "soporte-gato-jugueton",
@@ -698,7 +730,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 18,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-SOP-001"
   },
   {
     "id": "groot-rockero",
@@ -712,7 +745,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 10,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-COL-009"
   },
   {
     "id": "rompecabezas-cilindrico",
@@ -726,7 +760,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 15,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-JUE-002"
   },
   {
     "id": "rompecabezas-deslizante",
@@ -740,7 +775,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 18,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-JUE-003"
   },
   {
     "id": "llavero-triqui",
@@ -754,7 +790,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 6.5,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-JUE-004"
   },
   {
     "id": "portallaves-4x4",
@@ -768,7 +805,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 28,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-HOG-002"
   },
   {
     "id": "pulpo-esqueleto",
@@ -782,7 +820,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 38,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-ESQ-008"
   },
   {
     "id": "ranita-tambaleante",
@@ -796,7 +835,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 10,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-ART-004"
   },
   {
     "id": "mano-articulada",
@@ -810,7 +850,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 12,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-ART-005"
   },
   {
     "id": "matera-gato-dormilon",
@@ -824,7 +865,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 12,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-MAT-001"
   },
   {
     "id": "matera-pensador",
@@ -838,7 +880,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 14,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-MAT-002"
   },
   {
     "id": "matera-dinosaurio",
@@ -852,7 +895,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 20,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-MAT-003"
   },
   {
     "id": "matera-mama-hijo",
@@ -866,7 +910,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 20,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-MAT-004"
   },
   {
     "id": "matera-carita-gato",
@@ -880,7 +925,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 12,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-MAT-005"
   },
   {
     "id": "organizador-robotico",
@@ -894,7 +940,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 17,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-HOG-003"
   },
   {
     "id": "pato-hulk",
@@ -908,7 +955,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 16,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-COL-010"
   },
   {
     "id": "perchero-minimalista",
@@ -922,7 +970,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 30,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-HOG-004"
   },
   {
     "id": "perchero-expandible",
@@ -936,7 +985,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 50,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-HOG-005"
   },
   {
     "id": "perchero-hakuna-matata",
@@ -950,7 +1000,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 35,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-HOG-006"
   },
   {
     "id": "perrito-articulado",
@@ -964,7 +1015,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 14,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-ANI-005"
   },
   {
     "id": "perrito-lector",
@@ -978,7 +1030,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 13,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-DEC-003"
   },
   {
     "id": "bulldog-frances-low-poly",
@@ -992,7 +1045,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 17,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-ANI-006"
   },
   {
     "id": "doberman-decorativo",
@@ -1006,7 +1060,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 20,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-ANI-007"
   },
   {
     "id": "schnauzer-low-poly",
@@ -1020,7 +1075,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 20,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-ANI-008"
   },
   {
     "id": "pinguino-tambaleante",
@@ -1034,7 +1090,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 9,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-ART-006"
   },
   {
     "id": "soporte-conejo",
@@ -1048,7 +1105,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 17,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-SOP-002"
   },
   {
     "id": "soporte-dinosaurio",
@@ -1062,7 +1120,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 15,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-SOP-003"
   },
   {
     "id": "soporte-stitch-abrazador",
@@ -1076,7 +1135,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 16,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-SOP-004"
   },
   {
     "id": "soporte-hello-kitty-pie",
@@ -1090,7 +1150,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 14,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-SOP-005"
   },
   {
     "id": "tortuga-ninja",
@@ -1104,7 +1165,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 10,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-COL-011"
   },
   {
     "id": "portallaves-rinoceronte",
@@ -1118,7 +1180,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 10,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-HOG-007"
   },
   {
     "id": "sonic-articulado",
@@ -1132,7 +1195,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 11,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-ART-007"
   },
   {
     "id": "soporte-garfield",
@@ -1146,7 +1210,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 17,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-SOP-006"
   },
   {
     "id": "soporte-gato-sentado",
@@ -1160,7 +1225,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 15,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-SOP-007"
   },
   {
     "id": "soporte-hello-kitty-sentada",
@@ -1174,7 +1240,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 13,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-SOP-008"
   },
   {
     "id": "soporte-stitch-pie",
@@ -1188,7 +1255,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 13,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-SOP-009"
   },
   {
     "id": "soporte-casco",
@@ -1202,7 +1270,8 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 20,
     "medidaEstimada": true,
     "destacado": true,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-HOG-008"
   },
   {
     "id": "soporte-carita-gato",
@@ -1216,6 +1285,232 @@ window.PRODUCTOS_NEBULABS = [
     "largoCm": 12,
     "medidaEstimada": true,
     "destacado": false,
-    "nuevo": true
+    "nuevo": true,
+    "codigo": "NBL-SOP-010"
+  },
+  {
+    "id": "rompecabezas-esqueleto-humano",
+    "nombre": "Rompecabezas Esqueleto Humano",
+    "categoria": "Juegos",
+    "imagen": "assets/images/productos/rompecabezas-esqueleto-humano.webp",
+    "descripcion": "Rompecabezas didáctico del cuerpo humano con piezas óseas y órganos encajables. Ideal para aprendizaje, juego y decoración educativa.",
+    "precioUnicolor": null,
+    "precioMulticolor": null,
+    "altoCm": 28,
+    "largoCm": 13,
+    "medidaEstimada": true,
+    "destacado": true,
+    "nuevo": true,
+    "codigo": "NBL-JUE-005"
+  },
+  {
+    "id": "juego-arbol-numeros",
+    "nombre": "Juego Árbol de Números",
+    "categoria": "Juegos",
+    "imagen": "assets/images/productos/juego-arbol-numeros.webp",
+    "descripcion": "Juego didáctico para asociación de números y conteo mediante manzanas removibles. Pensado para aprendizaje temprano.",
+    "precioUnicolor": null,
+    "precioMulticolor": null,
+    "altoCm": 3,
+    "largoCm": 22,
+    "medidaEstimada": true,
+    "destacado": true,
+    "nuevo": true,
+    "codigo": "NBL-JUE-006"
+  },
+  {
+    "id": "juego-caracol-arcoiris",
+    "nombre": "Juego Caracol Arcoíris Apilable",
+    "categoria": "Juegos",
+    "imagen": "assets/images/productos/juego-caracol-arcoiris.webp",
+    "descripcion": "Caracol didáctico con arcos removibles y apilables. Favorece coordinación, clasificación por tamaño y reconocimiento de colores.",
+    "precioUnicolor": null,
+    "precioMulticolor": null,
+    "altoCm": 13,
+    "largoCm": 18,
+    "medidaEstimada": true,
+    "destacado": true,
+    "nuevo": true,
+    "codigo": "NBL-JUE-007"
+  },
+  {
+    "id": "rompecabezas-leon",
+    "nombre": "Rompecabezas León Infantil",
+    "categoria": "Juegos",
+    "imagen": "assets/images/productos/rompecabezas-leon.webp",
+    "descripcion": "Rompecabezas plano con silueta de león y piezas grandes, pensado para manos pequeñas y actividades didácticas.",
+    "precioUnicolor": null,
+    "precioMulticolor": null,
+    "altoCm": 15,
+    "largoCm": 19,
+    "medidaEstimada": true,
+    "destacado": false,
+    "nuevo": true,
+    "codigo": "NBL-JUE-008"
+  },
+  {
+    "id": "rompecabezas-elefante",
+    "nombre": "Rompecabezas Elefante Infantil",
+    "categoria": "Juegos",
+    "imagen": "assets/images/productos/rompecabezas-elefante.webp",
+    "descripcion": "Rompecabezas infantil de elefante con piezas grandes y bordes suaves para juego y aprendizaje temprano.",
+    "precioUnicolor": null,
+    "precioMulticolor": null,
+    "altoCm": 15,
+    "largoCm": 19,
+    "medidaEstimada": true,
+    "destacado": false,
+    "nuevo": true,
+    "codigo": "NBL-JUE-009"
+  },
+  {
+    "id": "juego-montessori-tuercas",
+    "nombre": "Juego Montessori de Tuercas y Tornillos",
+    "categoria": "Juegos",
+    "imagen": "assets/images/productos/juego-montessori-tuercas.webp",
+    "descripcion": "Set didáctico con tornillos y tuercas de distintos tamaños para coordinación mano-ojo, motricidad fina y clasificación.",
+    "precioUnicolor": null,
+    "precioMulticolor": null,
+    "altoCm": 18,
+    "largoCm": 20,
+    "medidaEstimada": true,
+    "destacado": true,
+    "nuevo": true,
+    "codigo": "NBL-JUE-010"
+  },
+  {
+    "id": "soporte-celular-tigre",
+    "nombre": "Soporte para Celular Tigre",
+    "categoria": "Soportes",
+    "imagen": "assets/images/productos/soporte-celular-tigre.webp",
+    "descripcion": "Soporte individual para celular con diseño de tigre. Pieza decorativa y funcional para escritorio o mesa de noche.",
+    "precioUnicolor": 11000,
+    "precioMulticolor": 14000,
+    "altoCm": 10,
+    "largoCm": 11,
+    "medidaEstimada": false,
+    "destacado": false,
+    "nuevo": true,
+    "codigo": "NBL-SOP-011"
+  },
+  {
+    "id": "soporte-celular-mamut",
+    "nombre": "Soporte para Celular Mamut",
+    "categoria": "Soportes",
+    "imagen": "assets/images/productos/soporte-celular-mamut.webp",
+    "descripcion": "Soporte individual para celular con diseño de mamut. Mantiene el teléfono apoyado mientras decora el espacio.",
+    "precioUnicolor": 11000,
+    "precioMulticolor": 14000,
+    "altoCm": 10,
+    "largoCm": 11,
+    "medidaEstimada": false,
+    "destacado": false,
+    "nuevo": true,
+    "codigo": "NBL-SOP-012"
+  },
+  {
+    "id": "soporte-celular-perro",
+    "nombre": "Soporte para Celular Perro",
+    "categoria": "Soportes",
+    "imagen": "assets/images/productos/soporte-celular-perro.webp",
+    "descripcion": "Soporte individual para celular con diseño de perro, compacto y funcional para escritorio.",
+    "precioUnicolor": 11000,
+    "precioMulticolor": 14000,
+    "altoCm": 10,
+    "largoCm": 11,
+    "medidaEstimada": false,
+    "destacado": false,
+    "nuevo": true,
+    "codigo": "NBL-SOP-013"
+  },
+  {
+    "id": "soporte-celular-tortuga",
+    "nombre": "Soporte para Celular Tortuga",
+    "categoria": "Soportes",
+    "imagen": "assets/images/productos/soporte-celular-tortuga.webp",
+    "descripcion": "Soporte individual para celular con diseño de tortuga. Ideal para mesa de trabajo, estudio o regalo.",
+    "precioUnicolor": 11000,
+    "precioMulticolor": 14000,
+    "altoCm": 10,
+    "largoCm": 11,
+    "medidaEstimada": false,
+    "destacado": false,
+    "nuevo": true,
+    "codigo": "NBL-SOP-014"
+  },
+  {
+    "id": "soporte-celular-oso",
+    "nombre": "Soporte para Celular Oso",
+    "categoria": "Soportes",
+    "imagen": "assets/images/productos/soporte-celular-oso.webp",
+    "descripcion": "Soporte individual para celular con diseño de oso. Pieza práctica, estable y decorativa.",
+    "precioUnicolor": 11000,
+    "precioMulticolor": 14000,
+    "altoCm": 10,
+    "largoCm": 11,
+    "medidaEstimada": false,
+    "destacado": false,
+    "nuevo": true,
+    "codigo": "NBL-SOP-015"
+  },
+  {
+    "id": "organizador-modular-animalitos",
+    "nombre": "Organizador Modular Animalitos",
+    "categoria": "Hogar y oficina",
+    "imagen": "assets/images/productos/organizador-modular-animalitos.webp",
+    "descripcion": "Organizador vertical con cajones removibles de caritas de animales. Útil para pequeños accesorios, escritorio o habitación infantil.",
+    "precioUnicolor": null,
+    "precioMulticolor": null,
+    "altoCm": 31,
+    "largoCm": 14,
+    "medidaEstimada": true,
+    "destacado": true,
+    "nuevo": true,
+    "codigo": "NBL-HOG-009"
+  },
+  {
+    "id": "soporte-celular-chimuelo",
+    "nombre": "Soporte para Celular Chimuelo",
+    "categoria": "Soportes",
+    "imagen": "assets/images/productos/soporte-celular-chimuelo.webp",
+    "descripcion": "Soporte para celular inspirado en un dragón negro, con cuerpo alargado que sostiene el teléfono en posición horizontal o inclinada.",
+    "precioUnicolor": null,
+    "precioMulticolor": null,
+    "altoCm": 9,
+    "largoCm": 20,
+    "medidaEstimada": true,
+    "destacado": true,
+    "nuevo": true,
+    "codigo": "NBL-SOP-016"
+  },
+  {
+    "id": "organizador-escritorio-multicompartimento",
+    "nombre": "Organizador de Escritorio Multicompartimento",
+    "categoria": "Hogar y oficina",
+    "imagen": "assets/images/productos/organizador-escritorio-multicompartimento.webp",
+    "descripcion": "Organizador amplio para lapiceros, notas, clips y accesorios de oficina. Diseño compacto con varios compartimentos.",
+    "precioUnicolor": null,
+    "precioMulticolor": null,
+    "altoCm": 12,
+    "largoCm": 23,
+    "medidaEstimada": true,
+    "destacado": true,
+    "nuevo": true,
+    "codigo": "NBL-HOG-010"
+  },
+  {
+    "id": "juego-atrapa-cerditos",
+    "nombre": "Juego Atrapa Cerditos",
+    "categoria": "Juegos",
+    "imagen": "assets/images/productos/juego-atrapa-cerditos.webp",
+    "descripcion": "Juego de mesa con tablero, mini cerditos y piezas de juego. Producto vendido como set completo.",
+    "precioUnicolor": null,
+    "precioMulticolor": null,
+    "altoCm": 5,
+    "largoCm": 24,
+    "medidaEstimada": true,
+    "destacado": true,
+    "nuevo": true,
+    "codigo": "NBL-JUE-011"
   }
 ];
