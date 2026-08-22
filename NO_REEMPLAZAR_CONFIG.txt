@@ -1,0 +1,5 @@
+IMPORTANTE
+
+Este paquete rápido NO reemplaza assets/js/config.js para conservar tu número de WhatsApp, Instagram y correo actuales.
+
+Si utilizas el repositorio completo, primero copia esos tres datos desde tu config.js actual al nuevo archivo.

@@ -61,7 +61,7 @@
 
   function formatearPrecio(valor) {
     if (valor === null || valor === undefined || valor === "") {
-      return "Por definir";
+      return "Cotizar";
     }
 
     return new Intl.NumberFormat("es-CO", {
@@ -71,10 +71,17 @@
     }).format(valor);
   }
 
-  function formatearMedida(valor) {
-    return valor === null || valor === undefined || valor === ""
-      ? "Por definir"
-      : `${valor} cm`;
+  function formatearMedida(valor, estimada = false) {
+    if (valor === null || valor === undefined || valor === "") {
+      return "Por definir";
+    }
+
+    const numero = Number(valor);
+    const medida = Number.isFinite(numero)
+      ? new Intl.NumberFormat("es-CO", { maximumFractionDigits: 1 }).format(numero)
+      : String(valor);
+
+    return `${estimada ? "~" : ""}${medida} cm`;
   }
 
   function telefonoLimpio() {
@@ -298,8 +305,8 @@
   function tarjetaProducto(producto) {
     const precioUnicolor = formatearPrecio(producto.precioUnicolor);
     const precioMulticolor = formatearPrecio(producto.precioMulticolor);
-    const alto = formatearMedida(producto.altoCm);
-    const largo = formatearMedida(producto.largoCm);
+    const alto = formatearMedida(producto.altoCm, producto.medidaEstimada);
+    const largo = formatearMedida(producto.largoCm, producto.medidaEstimada);
     const botonCotizar = whatsappConfigurado()
       ? `<a class="button button--primary" href="${enlaceWhatsapp(producto)}" target="_blank" rel="noopener">Cotizar</a>`
       : `<a class="button button--primary is-disabled" href="#contacto" data-unconfigured-whatsapp>Cotizar</a>`;
@@ -323,11 +330,11 @@
 
           <div class="price-grid">
             <div class="price-box">
-              <span>Unicolor</span>
+              <span>Unicolor / unidad</span>
               <strong>${escapeHtml(precioUnicolor)}</strong>
             </div>
             <div class="price-box">
-              <span>Multicolor</span>
+              <span>Multicolor / unidad</span>
               <strong>${escapeHtml(precioMulticolor)}</strong>
             </div>
           </div>
@@ -410,20 +417,20 @@
 
     elementos.modalInfo.innerHTML = `
       <div class="modal-info-item">
-        <span>Unicolor</span>
+        <span>Unicolor / unidad</span>
         <strong>${escapeHtml(formatearPrecio(producto.precioUnicolor))}</strong>
       </div>
       <div class="modal-info-item">
-        <span>Multicolor</span>
+        <span>Multicolor / unidad</span>
         <strong>${escapeHtml(formatearPrecio(producto.precioMulticolor))}</strong>
       </div>
       <div class="modal-info-item">
         <span>Alto</span>
-        <strong>${escapeHtml(formatearMedida(producto.altoCm))}</strong>
+        <strong>${escapeHtml(formatearMedida(producto.altoCm, producto.medidaEstimada))}</strong>
       </div>
       <div class="modal-info-item">
         <span>Largo</span>
-        <strong>${escapeHtml(formatearMedida(producto.largoCm))}</strong>
+        <strong>${escapeHtml(formatearMedida(producto.largoCm, producto.medidaEstimada))}</strong>
       </div>
     `;
 
