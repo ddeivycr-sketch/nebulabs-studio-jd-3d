@@ -520,7 +520,7 @@ window.PRODUCTOS_NEBULABS = [
   },
   {
     "id": "ajedrez-galactico",
-    "nombre": "Ajedrez galáctico con estuche",
+    "nombre": "Ajedrez star wars",
     "categoria": "Juegos",
     "imagen": "assets/images/productos/ajedrez-galactico.webp",
     "descripcion": "Juego de ajedrez temático con tablero plegable y piezas organizadas en estuche. Se cotiza como un juego completo.",
