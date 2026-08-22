@@ -14,7 +14,7 @@ window.CONFIGURACION_NEBULABS = {
     "Figuras articuladas, coleccionables, regalos y diseños personalizados impresos en 3D.",
 
   // DATOS PENDIENTES DE COMPLETAR ANTES DE PUBLICAR
-  whatsapp: "573186859558 - 57323688915",
+  whatsapp: "573186859558",
   correo: "ddeivycr@gmail.com",
   ciudad: "Colombia",
 
