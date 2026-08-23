@@ -107,15 +107,15 @@
   function enlaceWhatsapp(producto = null) {
     const mensajeBase = config.mensajeWhatsapp || "Hola, quiero cotizar un producto.";
     const detalle = producto
-      ? `\n\nID: ${producto.codigo || producto.id}\nProducto: ${producto.nombre}\nColor deseado: \nTamano deseado: \nCantidad: `
-      : "\n\nProducto o idea: \nColor deseado: \nTamano deseado: \nCantidad: ";
+      ? `\n\nID: ${producto.codigo || producto.id}\nProducto: ${producto.nombre}\nColor deseado: \nTamano deseado: `
+      : "\n\nProducto: \nColor deseado: \nTamano deseado: ";
 
     return `https://wa.me/${telefonoLimpio()}?text=${encodeURIComponent(mensajeBase + detalle)}`;
   }
 
   function activarEnlaceContacto(enlace, producto = null) {
     if (!whatsappConfigurado()) {
-      enlace.href = "#contacto";
+      enlace.href = "#";
       enlace.classList.add("is-disabled");
       enlace.setAttribute("title", "Configura el numero de WhatsApp en assets/js/config.js");
       enlace.addEventListener("click", mostrarAvisoConfiguracion);
@@ -152,7 +152,7 @@
     document.title = `${config.marca || "NebuLabs Studio J.D 3D"} | Catalogo`;
 
     if (heroDescription) {
-      heroDescription.textContent = config.descripcion || "Impresion 3D personalizada.";
+      heroDescription.textContent = "Regala algo diferente. Regala algo único.";
     }
     if (locationText) locationText.textContent = config.ciudad || "Colombia";
     if (paymentText) {
@@ -161,8 +161,8 @@
     if (paymentShort) {
       paymentShort.textContent = (config.mediosPago || []).join(" y ") || "Por confirmar";
     }
-    if (priceNotice) priceNotice.textContent = config.avisoPrecios || "";
-    if (measureNotice) measureNotice.textContent = config.avisoMedidas || "";
+    if (priceNotice) priceNotice.textContent = "Los valores corresponden a una unidad, salvo los productos identificados expresamente como juego o set. Los cambios de tamaño, color o acabado pueden modificar el valor final.";
+    if (measureNotice) measureNotice.textContent = "Solo se muestran medidas confirmadas para referencias específicas.";
     if (legalNotice) legalNotice.textContent = config.avisoLegal || "";
     if (footerBrand) footerBrand.textContent = config.marca || "NebuLabs Studio J.D 3D";
     if (currentYear) currentYear.textContent = String(new Date().getFullYear());
@@ -179,7 +179,7 @@
       if (instagramConfigurado()) {
         instagramLink.href = config.instagram;
       } else {
-        instagramLink.href = "#contacto";
+        instagramLink.href = "#";
         instagramLink.classList.add("is-disabled");
         instagramLink.title = "Configura Instagram en assets/js/config.js";
         instagramLink.addEventListener("click", (evento) => {
@@ -197,7 +197,7 @@
           "Cotizacion de impresion 3D"
         )}`;
       } else {
-        emailLink.href = "#contacto";
+        emailLink.href = "#";
         emailLink.classList.add("is-disabled");
         emailLink.title = "Configura el correo en assets/js/config.js";
         emailLink.addEventListener("click", (evento) => {
@@ -218,8 +218,16 @@
   }
 
   function categoriasDisponibles() {
-    const categorias = [...new Set(productos.map((producto) => producto.categoria))];
-    return ["Todos", ...categorias.sort((a, b) => a.localeCompare(b, "es"))];
+    return ["Todos", "Juegos", "Animales", "Dinosaurios", "Hogar"];
+  }
+
+  function categoriaAgrupada(producto, categoria) {
+    if (categoria === "Todos") return true;
+    if (categoria === "Juegos") return producto.categoria === "Juegos";
+    if (categoria === "Animales") return ["Animales", "Articulados", "Fantasía"].includes(producto.categoria);
+    if (categoria === "Dinosaurios") return ["Dinosaurios", "Esqueletos"].includes(producto.categoria);
+    if (categoria === "Hogar") return ["Hogar y oficina", "Soportes", "Materas", "Accesorios", "Decoración", "Llaveros"].includes(producto.categoria);
+    return false;
   }
 
   function renderFiltros() {
@@ -230,7 +238,7 @@
         const cantidad =
           categoria === "Todos"
             ? productos.length
-            : productos.filter((producto) => producto.categoria === categoria).length;
+            : productos.filter((producto) => categoriaAgrupada(producto, categoria)).length;
 
         return `
           <button
@@ -260,7 +268,7 @@
 
     const filtrados = productos.filter((producto) => {
       const coincideCategoria =
-        estado.categoria === "Todos" || producto.categoria === estado.categoria;
+        categoriaAgrupada(producto, estado.categoria);
       const contenido = normalizar(
         `${producto.codigo || ""} ${producto.nombre} ${producto.categoria} ${producto.descripcion}`
       );
@@ -302,64 +310,44 @@
     return badges.join("");
   }
 
+  function medidasProducto(producto) {
+    const items = [];
+    if (producto.altoCm) items.push(["Alto", formatearMedida(producto.altoCm, false)]);
+    if (producto.anchoCm) items.push(["Ancho", formatearMedida(producto.anchoCm, false)]);
+    if (producto.largoCm) items.push(["Largo", formatearMedida(producto.largoCm, false)]);
+    if (producto.fondoCm) items.push(["Fondo", formatearMedida(producto.fondoCm, false)]);
+    return items;
+  }
+
   function tarjetaProducto(producto) {
-    const precioUnicolor = formatearPrecio(producto.precioUnicolor);
-    const precioMulticolor = formatearPrecio(producto.precioMulticolor);
-    const alto = formatearMedida(producto.altoCm, producto.medidaEstimada);
-    const largo = formatearMedida(producto.largoCm, producto.medidaEstimada);
+    const precio = formatearPrecio(precioNumero(producto));
+    const medidas = medidasProducto(producto);
     const botonCotizar = whatsappConfigurado()
       ? `<a class="button button--primary" href="${enlaceWhatsapp(producto)}" target="_blank" rel="noopener">Cotizar</a>`
-      : `<a class="button button--primary is-disabled" href="#contacto" data-unconfigured-whatsapp>Cotizar</a>`;
+      : `<a class="button button--primary is-disabled" href="#" data-unconfigured-whatsapp>Cotizar</a>`;
 
     return `
       <article class="product-card reveal" data-id="${escapeHtml(producto.id)}">
         <div class="product-media">
-          <img
-            src="${escapeHtml(producto.imagen)}"
-            alt="${escapeHtml(producto.nombre)} impreso en 3D"
-            loading="lazy"
-            decoding="async"
-          >
+          <img src="${escapeHtml(producto.imagen)}" alt="${escapeHtml(producto.nombre)} impreso en 3D" loading="lazy" decoding="async">
           <div class="product-badges">${badgesProducto(producto)}</div>
         </div>
-
         <div class="product-content">
           <div class="product-code">${escapeHtml(producto.codigo || producto.id)}</div>
           <span class="product-category">${escapeHtml(producto.categoria)}</span>
           <h3>${escapeHtml(producto.nombre)}</h3>
           <p class="product-description">${escapeHtml(producto.descripcion)}</p>
-
-          <div class="price-grid">
+          <div class="price-grid price-grid--single">
             <div class="price-box">
-              <span>Unicolor / unidad</span>
-              <strong>${escapeHtml(precioUnicolor)}</strong>
-            </div>
-            <div class="price-box">
-              <span>Multicolor / unidad</span>
-              <strong>${escapeHtml(precioMulticolor)}</strong>
+              <span>Precio / unidad</span>
+              <strong>${escapeHtml(precio)}</strong>
             </div>
           </div>
-
-          <div class="measure-line">
-            <div class="measure-box">
-              <span>Alto</span>
-              <strong>${escapeHtml(alto)}</strong>
-            </div>
-            <div class="measure-box">
-              <span>Largo</span>
-              <strong>${escapeHtml(largo)}</strong>
-            </div>
-          </div>
-
+          ${medidas.length ? `<div class="measure-line measure-line--confirmed">${medidas.map(([etiqueta, valor]) => `<div class="measure-box"><span>${etiqueta}</span><strong>${escapeHtml(valor)}</strong></div>`).join("")}</div>` : ""}
           <div class="product-actions">
             ${botonCotizar}
-            <button class="icon-button" type="button" data-open-product="${escapeHtml(
-              producto.id
-            )}" aria-label="Ver detalle de ${escapeHtml(producto.nombre)}">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 5c5.1 0 8.8 4.4 9.6 5.4a2.6 2.6 0 0 1 0 3.2C20.8 14.6 17.1 19 12 19S3.2 14.6 2.4 13.6a2.6 2.6 0 0 1 0-3.2C3.2 9.4 6.9 5 12 5Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
-                <circle cx="12" cy="12" r="3.1" fill="none" stroke="currentColor" stroke-width="1.8"/>
-              </svg>
+            <button class="icon-button" type="button" data-open-product="${escapeHtml(producto.id)}" aria-label="Ver detalle de ${escapeHtml(producto.nombre)}">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c5.1 0 8.8 4.4 9.6 5.4a2.6 2.6 0 0 1 0 3.2C20.8 14.6 17.1 19 12 19S3.2 14.6 2.4 13.6a2.6 2.6 0 0 1 0-3.2C3.2 9.4 6.9 5 12 5Z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.1" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
             </button>
           </div>
         </div>
@@ -414,29 +402,12 @@
     elementos.modalTitle.textContent = producto.nombre;
     elementos.modalDescription.textContent = producto.descripcion;
     elementos.modalBadges.innerHTML = badgesProducto(producto);
-    elementos.modalNote.textContent = `${config.avisoPrecios || ""} ${config.avisoMedidas || ""}`;
+    elementos.modalNote.textContent = "El precio corresponde a una unidad, salvo cuando el producto se identifica expresamente como juego o set.";
 
     elementos.modalInfo.innerHTML = `
-      <div class="modal-info-item">
-        <span>ID</span>
-        <strong>${escapeHtml(producto.codigo || producto.id)}</strong>
-      </div>
-      <div class="modal-info-item">
-        <span>Unicolor / unidad</span>
-        <strong>${escapeHtml(formatearPrecio(producto.precioUnicolor))}</strong>
-      </div>
-      <div class="modal-info-item">
-        <span>Multicolor / unidad</span>
-        <strong>${escapeHtml(formatearPrecio(producto.precioMulticolor))}</strong>
-      </div>
-      <div class="modal-info-item">
-        <span>Alto</span>
-        <strong>${escapeHtml(formatearMedida(producto.altoCm, producto.medidaEstimada))}</strong>
-      </div>
-      <div class="modal-info-item">
-        <span>Largo</span>
-        <strong>${escapeHtml(formatearMedida(producto.largoCm, producto.medidaEstimada))}</strong>
-      </div>
+      <div class="modal-info-item"><span>ID</span><strong>${escapeHtml(producto.codigo || producto.id)}</strong></div>
+      <div class="modal-info-item"><span>Precio / unidad</span><strong>${escapeHtml(formatearPrecio(precioNumero(producto)))}</strong></div>
+      ${medidasProducto(producto).map(([etiqueta, valor]) => `<div class="modal-info-item"><span>${etiqueta}</span><strong>${escapeHtml(valor)}</strong></div>`).join("")}
     `;
 
     elementos.modalWhatsapp.replaceWith(elementos.modalWhatsapp.cloneNode(true));

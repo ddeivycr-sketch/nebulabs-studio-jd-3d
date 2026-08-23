@@ -1888,3 +1888,20 @@ h3 {
 
 /* ID comercial de producto */
 .product-code{display:inline-flex;align-items:center;width:max-content;margin-bottom:8px;padding:5px 9px;border-radius:999px;background:rgba(124,58,237,.10);color:#5b21b6;font-size:.74rem;font-weight:800;letter-spacing:.05em;border:1px solid rgba(124,58,237,.14)}
+
+
+/* Ajustes catálogo agosto 2026 */
+.hero-card--extra {
+  position:absolute;
+  width:34%;
+  right:-2%;
+  bottom:1%;
+  transform:rotate(5deg);
+  z-index:4;
+}
+.hero-card--extra img { width:100%; height:100%; object-fit:cover; }
+.price-grid--single { grid-template-columns:1fr; }
+.measure-line--confirmed { grid-template-columns:repeat(auto-fit,minmax(90px,1fr)); }
+@media (max-width: 760px) {
+  .hero-card--extra { width:31%; right:1%; bottom:0; }
+}
