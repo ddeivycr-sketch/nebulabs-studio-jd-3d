@@ -2,30 +2,6 @@
 
 Sitio web estático, responsive y listo para publicar en **GitHub Pages**. Incluye catálogo dinámico, buscador, filtros, precios, medidas, productos destacados, modal de detalle, botones de cotización y una sección de personalización.
 
-## Antes de publicar
-
-Edita el archivo:
-
-```text
-assets/js/config.js
-```
-
-Reemplaza estos tres datos:
-
-```js
-whatsapp: "57XXXXXXXXXX",
-instagram: "https://www.instagram.com/USUARIO/",
-correo: "CORREO@EJEMPLO.COM",
-```
-
-El número de WhatsApp debe incluir el indicativo del país, sin `+`, espacios ni guiones. Ejemplo para Colombia:
-
-```js
-whatsapp: "573001234567",
-```
-
-Mientras esos datos sigan pendientes, la página muestra una franja de advertencia y los botones de contacto no se activan.
-
 ## Estructura del repositorio
 
 ```text
@@ -59,14 +35,6 @@ nebulabs-studio-jd-3d/
 4. Revisa el catálogo, los filtros, el menú y los botones.
 
 No requiere instalar programas ni ejecutar un servidor.
-
-## Cómo publicar
-
-Consulta la guía completa:
-
-```text
-PUBLICAR_EN_GITHUB_PAGES.md
-```
 
 El método recomendado para este proyecto es:
 
