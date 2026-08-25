@@ -23,6 +23,7 @@
     sortSelect: $("#sortSelect"),
     visibleCount: $("#visibleCount"),
     loadMoreButton: $("#loadMoreButton"),
+    setupWarning: $("#setupWarning"),
     menuButton: $("#menuButton"),
     mainNav: $("#mainNav"),
     modal: $("#productModal"),
@@ -55,7 +56,7 @@
   }
 
   function precioNumero(producto) {
-    return producto.precio ?? producto.precioUnicolor ?? producto.precioMulticolor ?? null;
+    return producto.precioUnicolor ?? producto.precioMulticolor ?? null;
   }
 
   function formatearPrecio(valor) {
@@ -107,7 +108,7 @@
     const mensajeBase = config.mensajeWhatsapp || "Hola, quiero cotizar un producto.";
     const detalle = producto
       ? `\n\nID: ${producto.codigo || producto.id}\nProducto: ${producto.nombre}\nColor deseado: \nTamano deseado: `
-      : "\n\nProducto o idea: \nColor deseado: \nTamano deseado: ";
+      : "\n\nProducto: \nColor deseado: \nTamano deseado: ";
 
     return `https://wa.me/${telefonoLimpio()}?text=${encodeURIComponent(mensajeBase + detalle)}`;
   }
@@ -135,6 +136,7 @@
   }
 
   function configurarDatosGenerales() {
+    const heroDescription = $("#heroDescription");
     const locationText = $("#locationText");
     const paymentText = $("#paymentText");
     const paymentShort = $("#paymentShort");
@@ -148,6 +150,10 @@
     const emailLink = $("#emailLink");
 
     document.title = `${config.marca || "NebuLabs Studio J.D 3D"} | Catalogo`;
+
+    if (heroDescription) {
+      heroDescription.textContent = "Regala algo diferente. Regala algo único.";
+    }
     if (locationText) locationText.textContent = config.ciudad || "Colombia";
     if (paymentText) {
       paymentText.textContent = (config.mediosPago || []).join(" o ") || "Por confirmar.";
@@ -155,8 +161,8 @@
     if (paymentShort) {
       paymentShort.textContent = (config.mediosPago || []).join(" y ") || "Por confirmar";
     }
-    if (priceNotice) priceNotice.textContent = config.avisoPrecios || "";
-    if (measureNotice) measureNotice.textContent = config.avisoMedidas || "";
+    if (priceNotice) priceNotice.textContent = "Los valores corresponden a una unidad, salvo los productos identificados expresamente como juego o set. Los cambios de tamaño, color o acabado pueden modificar el valor final.";
+    if (measureNotice) measureNotice.textContent = "Solo se muestran medidas confirmadas para referencias específicas.";
     if (legalNotice) legalNotice.textContent = config.avisoLegal || "";
     if (footerBrand) footerBrand.textContent = config.marca || "NebuLabs Studio J.D 3D";
     if (currentYear) currentYear.textContent = String(new Date().getFullYear());
@@ -173,7 +179,7 @@
       if (instagramConfigurado()) {
         instagramLink.href = config.instagram;
       } else {
-        instagramLink.href = "#contacto";
+        instagramLink.href = "#";
         instagramLink.classList.add("is-disabled");
         instagramLink.title = "Configura Instagram en assets/js/config.js";
         instagramLink.addEventListener("click", (evento) => {
@@ -191,7 +197,7 @@
           "Cotizacion de impresion 3D"
         )}`;
       } else {
-        emailLink.href = "#contacto";
+        emailLink.href = "#";
         emailLink.classList.add("is-disabled");
         emailLink.title = "Configura el correo en assets/js/config.js";
         emailLink.addEventListener("click", (evento) => {
@@ -202,31 +208,55 @@
         });
       }
     }
+
+    const configuracionIncompleta =
+      !whatsappConfigurado() || !instagramConfigurado() || !correoConfigurado();
+
+    if (elementos.setupWarning) {
+      elementos.setupWarning.hidden = !configuracionIncompleta;
+    }
   }
 
-  const filtrosRapidos = [
-    { clave: "Juegos", etiqueta: "Juegos", categorias: ["Juegos"] },
-    { clave: "Animales", etiqueta: "Animales", categorias: ["Animales"] },
-    { clave: "Dinosaurios", etiqueta: "Dinosaurios", categorias: ["Dinosaurios", "Esqueletos"] },
-    { clave: "Hogar", etiqueta: "Hogar", categorias: ["Hogar y oficina", "Materas", "Soportes", "Accesorios", "Decoración", "Llaveros"] }
-  ];
+  function categoriasDisponibles() {
+    return ["Todos", "Juegos", "Animales", "Dinosaurios", "Hogar", "Telecomunicaciones"];
+  }
 
-  function categoriasDelFiltro(clave) {
-    return filtrosRapidos.find((filtro) => filtro.clave === clave)?.categorias || [];
+  function categoriaAgrupada(producto, categoria) {
+    if (categoria === "Todos") return true;
+    if (categoria === "Juegos") return producto.categoria === "Juegos";
+    if (categoria === "Animales") return ["Animales", "Articulados", "Fantasía"].includes(producto.categoria);
+    if (categoria === "Dinosaurios") return ["Dinosaurios", "Esqueletos"].includes(producto.categoria);
+    if (categoria === "Hogar") return ["Hogar y oficina", "Soportes", "Materas", "Accesorios", "Decoración", "Llaveros"].includes(producto.categoria);
+    if (categoria === "Telecomunicaciones") return producto.categoria === "Telecomunicaciones";
+    return false;
   }
 
   function renderFiltros() {
     if (!elementos.categoryFilters) return;
-    elementos.categoryFilters.innerHTML = filtrosRapidos.map((filtro) => {
-      const cantidad = productos.filter((producto) => filtro.categorias.includes(producto.categoria)).length;
-      const activo = estado.categoria === filtro.clave;
-      return `<button class="filter-button ${activo ? "is-active" : ""}" type="button" data-category="${escapeHtml(filtro.clave)}" aria-pressed="${activo}">${escapeHtml(filtro.etiqueta)} <span aria-hidden="true">(${cantidad})</span></button>`;
-    }).join("");
 
-    $$('[data-category]', elementos.categoryFilters).forEach((boton) => {
+    elementos.categoryFilters.innerHTML = categoriasDisponibles()
+      .map((categoria) => {
+        const cantidad =
+          categoria === "Todos"
+            ? productos.length
+            : productos.filter((producto) => categoriaAgrupada(producto, categoria)).length;
+
+        return `
+          <button
+            class="filter-button ${estado.categoria === categoria ? "is-active" : ""}"
+            type="button"
+            data-category="${escapeHtml(categoria)}"
+            aria-pressed="${estado.categoria === categoria}"
+          >
+            ${escapeHtml(categoria)} <span aria-hidden="true">(${cantidad})</span>
+          </button>
+        `;
+      })
+      .join("");
+
+    $$("[data-category]", elementos.categoryFilters).forEach((boton) => {
       boton.addEventListener("click", () => {
-        const elegida = boton.dataset.category || "Todos";
-        estado.categoria = estado.categoria === elegida ? "Todos" : elegida;
+        estado.categoria = boton.dataset.category || "Todos";
         estado.limite = 12;
         renderFiltros();
         renderProductos();
@@ -239,7 +269,7 @@
 
     const filtrados = productos.filter((producto) => {
       const coincideCategoria =
-        estado.categoria === "Todos" || categoriasDelFiltro(estado.categoria).includes(producto.categoria);
+        categoriaAgrupada(producto, estado.categoria);
       const contenido = normalizar(
         `${producto.codigo || ""} ${producto.nombre} ${producto.categoria} ${producto.descripcion}`
       );
@@ -282,18 +312,17 @@
   }
 
   function medidasProducto(producto) {
-    const items = [
-      ["Alto", producto.altoCm],
-      ["Largo", producto.largoCm],
-      ["Ancho", producto.anchoCm],
-      ["Fondo", producto.fondoCm]
-    ].filter(([, valor]) => valor !== null && valor !== undefined && valor !== "");
-    if (!items.length) return "";
-    return `<div class="measure-line">${items.map(([etiqueta, valor]) => `<div class="measure-box"><span>${etiqueta}</span><strong>${escapeHtml(formatearMedida(valor, false))}</strong></div>`).join("")}</div>`;
+    const items = [];
+    if (producto.altoCm) items.push(["Alto", formatearMedida(producto.altoCm, false)]);
+    if (producto.anchoCm) items.push(["Ancho", formatearMedida(producto.anchoCm, false)]);
+    if (producto.largoCm) items.push(["Largo", formatearMedida(producto.largoCm, false)]);
+    if (producto.fondoCm) items.push(["Fondo", formatearMedida(producto.fondoCm, false)]);
+    return items;
   }
 
   function tarjetaProducto(producto) {
     const precio = formatearPrecio(precioNumero(producto));
+    const medidas = medidasProducto(producto);
     const botonCotizar = whatsappConfigurado()
       ? `<a class="button button--primary" href="${enlaceWhatsapp(producto)}" target="_blank" rel="noopener">Cotizar</a>`
       : `<a class="button button--primary is-disabled" href="#" data-unconfigured-whatsapp>Cotizar</a>`;
@@ -310,9 +339,12 @@
           <h3>${escapeHtml(producto.nombre)}</h3>
           <p class="product-description">${escapeHtml(producto.descripcion)}</p>
           <div class="price-grid price-grid--single">
-            <div class="price-box"><span>Precio / unidad</span><strong>${escapeHtml(precio)}</strong></div>
+            <div class="price-box">
+              <span>Precio / unidad</span>
+              <strong>${escapeHtml(precio)}</strong>
+            </div>
           </div>
-          ${medidasProducto(producto)}
+          ${medidas.length ? `<div class="measure-line measure-line--confirmed">${medidas.map(([etiqueta, valor]) => `<div class="measure-box"><span>${etiqueta}</span><strong>${escapeHtml(valor)}</strong></div>`).join("")}</div>` : ""}
           <div class="product-actions">
             ${botonCotizar}
             <button class="icon-button" type="button" data-open-product="${escapeHtml(producto.id)}" aria-label="Ver detalle de ${escapeHtml(producto.nombre)}">
@@ -371,15 +403,12 @@
     elementos.modalTitle.textContent = producto.nombre;
     elementos.modalDescription.textContent = producto.descripcion;
     elementos.modalBadges.innerHTML = badgesProducto(producto);
-    elementos.modalNote.textContent = config.avisoPrecios || "";
+    elementos.modalNote.textContent = "El precio corresponde a una unidad, salvo cuando el producto se identifica expresamente como juego o set.";
 
-    const medidasModal = [
-      ["Alto", producto.altoCm], ["Largo", producto.largoCm], ["Ancho", producto.anchoCm], ["Fondo", producto.fondoCm]
-    ].filter(([, valor]) => valor !== null && valor !== undefined && valor !== "");
     elementos.modalInfo.innerHTML = `
       <div class="modal-info-item"><span>ID</span><strong>${escapeHtml(producto.codigo || producto.id)}</strong></div>
       <div class="modal-info-item"><span>Precio / unidad</span><strong>${escapeHtml(formatearPrecio(precioNumero(producto)))}</strong></div>
-      ${medidasModal.map(([etiqueta, valor]) => `<div class="modal-info-item"><span>${etiqueta}</span><strong>${escapeHtml(formatearMedida(valor, false))}</strong></div>`).join("")}
+      ${medidasProducto(producto).map(([etiqueta, valor]) => `<div class="modal-info-item"><span>${etiqueta}</span><strong>${escapeHtml(valor)}</strong></div>`).join("")}
     `;
 
     elementos.modalWhatsapp.replaceWith(elementos.modalWhatsapp.cloneNode(true));
