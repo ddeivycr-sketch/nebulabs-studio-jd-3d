@@ -3,8 +3,8 @@
   "short_name": "NebuLabs 3D",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f8fafc",
-  "theme_color": "#0f172a",
+  "background_color": "#f7f9fc",
+  "theme_color": "#0b1020",
   "icons": [
     {
       "src": "assets/images/marca/favicon.svg",
