@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-labelledby="title desc">
+  <title id="title">NebuLabs Studio J.D 3D</title>
+  <desc id="desc">Logotipo con cubo tridimensional y filamento</desc>
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="0.48" stop-color="#06b6d4"/>
+      <stop offset="1" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="1" stop-color="#334155"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(8 8)">
+    <rect x="0" y="0" width="104" height="104" rx="28" fill="url(#g2)"/>
+    <path d="M52 16 84 34 52 52 20 34Z" fill="url(#g1)"/>
+    <path d="M20 34v36l32 18V52Z" fill="#7c3aed" opacity=".95"/>
+    <path d="M84 34v36L52 88V52Z" fill="#06b6d4" opacity=".95"/>
+    <path d="M33 28c8-7 20-9 29-4" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+    <circle cx="66" cy="24" r="4" fill="#fff"/>
+  </g>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <text x="132" y="54" font-size="38" font-weight="800" fill="#0f172a" letter-spacing="-1">NebuLabs</text>
+    <text x="132" y="88" font-size="24" font-weight="700" fill="#475569" letter-spacing="1.8">STUDIO J.D 3D</text>
+  </g>
+</svg>
