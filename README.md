@@ -1,6 +1,6 @@
 # NebuLabs Studio J.D 3D
 
-Sitio web estático, responsive y listo para publicar en **GitHub Pages**. Incluye catálogo dinámico, buscador, filtros, precios, medidas, productos destacados, modal de detalle, botones de cotización y una sección de personalización.
+Sitio web estático, responsive y listo para publicar en **GitHub Pages**. Incluye catálogo dinámico, buscador, filtros, precios, medidas, productos destacados, modal de detalle, compra/cotización centralizada, galería animada y una sección de personalización.
 
 ## Estructura del repositorio
 
