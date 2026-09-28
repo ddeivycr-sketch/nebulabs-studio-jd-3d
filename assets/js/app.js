@@ -38,7 +38,11 @@
     purchaseDockLabel: $("#purchaseDockLabel"),
     floatingTrackOne: $("#floatingTrackOne"),
     floatingTrackTwo: $("#floatingTrackTwo"),
-    heroVisual: $("#heroVisual")
+    heroVisual: $("#heroVisual"),
+    heroShowcase: $("#heroShowcase"),
+    heroShowcaseImage: $("#heroShowcaseImage"),
+    heroShowcaseName: $("#heroShowcaseName"),
+    heroShowcaseCategory: $("#heroShowcaseCategory")
   };
 
   let ultimoElementoEnfocado = null;
@@ -434,6 +438,46 @@
     });
   }
 
+  function configurarHeroShowcase() {
+    const thumbs = $$(".hero-v2__thumb");
+    if (!thumbs.length || !elementos.heroShowcaseImage) return;
+
+    let actual = Math.max(0, thumbs.findIndex((thumb) => thumb.classList.contains("is-active")));
+    let temporizador = null;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function activar(indice, reiniciar = true) {
+      const thumb = thumbs[indice];
+      if (!thumb) return;
+      actual = indice;
+      const media = elementos.heroShowcaseImage.closest(".hero-showcase__media");
+      media?.classList.add("is-switching");
+
+      window.setTimeout(() => {
+        elementos.heroShowcaseImage.src = thumb.dataset.heroImage || elementos.heroShowcaseImage.src;
+        elementos.heroShowcaseImage.alt = thumb.dataset.heroAlt || thumb.dataset.heroName || "Diseño 3D NebuLabs";
+        if (elementos.heroShowcaseName) elementos.heroShowcaseName.textContent = thumb.dataset.heroName || "Diseño NebuLabs";
+        if (elementos.heroShowcaseCategory) elementos.heroShowcaseCategory.textContent = thumb.dataset.heroCategory || "NebuLabs";
+        const contador = $(".hero-showcase__topbar small");
+        if (contador) contador.textContent = `${String(indice + 1).padStart(2, "0")} / ${String(thumbs.length).padStart(2, "0")}`;
+        thumbs.forEach((item, i) => item.classList.toggle("is-active", i === indice));
+        media?.classList.remove("is-switching");
+      }, 150);
+
+      if (reiniciar && !reduceMotion) iniciarAuto();
+    }
+
+    function iniciarAuto() {
+      if (temporizador) window.clearInterval(temporizador);
+      temporizador = window.setInterval(() => activar((actual + 1) % thumbs.length, false), 5200);
+    }
+
+    thumbs.forEach((thumb, indice) => thumb.addEventListener("click", () => activar(indice)));
+    elementos.heroShowcase?.addEventListener("mouseenter", () => temporizador && window.clearInterval(temporizador));
+    elementos.heroShowcase?.addEventListener("mouseleave", () => { if (!reduceMotion) iniciarAuto(); });
+    if (!reduceMotion) iniciarAuto();
+  }
+
   function configurarHeroMovimiento() {
     if (!elementos.heroVisual || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     elementos.heroVisual.addEventListener("pointermove", (evento) => {
@@ -477,6 +521,7 @@
     renderFiltros();
     renderProductos();
     renderGaleriaFlotante();
+    configurarHeroShowcase();
     configurarHeroMovimiento();
     observarRevelados();
   }

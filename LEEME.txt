@@ -1,0 +1,29 @@
+NEBULABS - ACTUALIZACION HERO WOW
+
+Esta actualización modifica únicamente:
+- index.html
+- assets/css/styles.css
+- assets/js/app.js
+
+NO modifica:
+- assets/js/config.js
+- assets/js/catalogo.js
+- imágenes del catálogo
+
+Cambios principales:
+- Hero superior completamente rediseñado.
+- Título más compacto y legible.
+- Mejor aprovechamiento horizontal del espacio.
+- Showcase interactivo con 5 productos.
+- Cambio automático de producto destacado cada 5,2 s.
+- Miniaturas clicables.
+- Parallax y profundidad al mover el cursor.
+- Mejor responsive para tablet y celular.
+- Fondo tecnológico con malla, halos y destellos.
+
+Para actualizar con GitHub Desktop:
+1. Copia index.html y la carpeta assets del ZIP dentro de tu repositorio local.
+2. Permite reemplazar los 3 archivos indicados arriba.
+3. En GitHub Desktop: Commit to main.
+4. Push origin.
+5. Espera el despliegue y usa Ctrl+F5 en el navegador.

@@ -15,7 +15,7 @@
   <title>NebuLabs Studio J.D 3D | Catálogo</title>
   <link rel="icon" href="assets/images/marca/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260927c">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260928hero2">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -40,75 +40,99 @@
     </div>
   </header>
 
-
-
   <main id="contenido">
-    <section class="hero hero-tech" aria-labelledby="heroTitle">
+    <section class="hero hero-tech hero-v2" aria-labelledby="heroTitle">
       <div class="hero-grid-pattern" aria-hidden="true"></div>
       <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
       <div class="hero-glow hero-glow--two" aria-hidden="true"></div>
+      <div class="hero-v2__mesh" aria-hidden="true"></div>
 
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <a class="announcement-pill" href="#catalogo" data-filter-jump="Novedades">
-            <span>Nuevo</span>
-            Llaveros Clicker ya disponibles
-            <b aria-hidden="true">→</b>
-          </a>
-
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Diseño · impresión · creatividad 3D
+      <div class="container hero-v2__grid">
+        <div class="hero-v2__copy reveal">
+          <div class="hero-v2__topline">
+            <a class="announcement-pill" href="#catalogo" data-filter-jump="Novedades">
+              <span>Nuevo</span>
+              Llaveros Clicker disponibles
+              <b aria-hidden="true">↗</b>
+            </a>
+            <div class="hero-v2__micro">Diseño · impresión · creatividad 3D</div>
           </div>
 
           <h1 id="heroTitle">
-            Ideas que salen de la pantalla y
-            <span class="gradient-text">se vuelven reales.</span>
+            Tu idea merece
+            <span class="gradient-text">salir de la pantalla.</span>
           </h1>
 
           <p class="hero-lead" id="heroDescription">
-            Explora figuras, juegos, accesorios y diseños personalizados creados para regalar, coleccionar y sorprender.
+            Diseñamos piezas 3D para regalar, coleccionar, decorar y convertir ideas en objetos que llaman la atención desde el primer vistazo.
           </p>
 
           <div class="hero-actions">
-            <a class="button button--dark" href="#catalogo">Explorar catálogo <span aria-hidden="true">↘</span></a>
-            <a class="text-link" href="#personalizacion">Ver opciones de personalización <span aria-hidden="true">→</span></a>
+            <a class="button button--dark hero-v2__primary" href="#catalogo">Explorar diseños <span aria-hidden="true">↘</span></a>
+            <a class="hero-v2__secondary" href="#personalizacion">
+              <span class="hero-v2__secondary-icon">✦</span>
+              <span><strong>¿Tienes una idea?</strong><small>La convertimos en 3D</small></span>
+              <b aria-hidden="true">→</b>
+            </a>
           </div>
 
-          <div class="hero-trust" aria-label="Características principales">
-            <div><strong>+90</strong><span>referencias</span></div>
+          <div class="hero-v2__proof" aria-label="Características principales">
+            <div><strong>+90</strong><span>diseños disponibles</span></div>
+            <i></i>
             <div><strong>100%</strong><span>personalizable</span></div>
-            <div><strong>3D</strong><span>bajo pedido</span></div>
+            <i></i>
+            <div><strong>3D</strong><span>hecho bajo pedido</span></div>
           </div>
         </div>
 
-        <div class="hero-visual reveal" id="heroVisual" aria-label="Muestra de diseños impresos en 3D">
-          <div class="hero-orbit hero-orbit--one"></div>
-          <div class="hero-orbit hero-orbit--two"></div>
-          <div class="hero-orbit hero-orbit--three"></div>
+        <div class="hero-v2__visual reveal" id="heroVisual" aria-label="Selección interactiva de diseños impresos en 3D">
+          <div class="hero-v2__halo hero-v2__halo--one" aria-hidden="true"></div>
+          <div class="hero-v2__halo hero-v2__halo--two" aria-hidden="true"></div>
+          <div class="hero-v2__spark hero-v2__spark--one" aria-hidden="true">✦</div>
+          <div class="hero-v2__spark hero-v2__spark--two" aria-hidden="true">✧</div>
 
-          <figure class="hero-card hero-card--main" data-tilt>
-            <img src="assets/images/productos/pato-guerrero.webp" alt="Pato guerrero impreso en 3D">
-            <figcaption>
-              <span>Diseño destacado</span>
-              <strong>Pato guerrero</strong>
-            </figcaption>
-          </figure>
+          <div class="hero-showcase" id="heroShowcase">
+            <div class="hero-showcase__topbar">
+              <span><i></i> Selección NebuLabs</span>
+              <small>01 / 05</small>
+            </div>
 
-          <figure class="hero-card hero-card--top" data-tilt>
-            <img src="assets/images/productos/esqueleto-trex-colorido.webp" alt="Esqueleto T-Rex articulado impreso en 3D">
-          </figure>
+            <div class="hero-showcase__media">
+              <img id="heroShowcaseImage" src="assets/images/productos/pato-guerrero.webp" alt="Pato guerrero impreso en 3D">
+              <div class="hero-showcase__veil"></div>
+              <div class="hero-showcase__label">
+                <span id="heroShowcaseCategory">Coleccionable</span>
+                <strong id="heroShowcaseName">Pato guerrero</strong>
+              </div>
+              <div class="hero-showcase__badge">HECHO EN 3D</div>
+            </div>
 
-          <figure class="hero-card hero-card--bottom" data-tilt>
-            <img src="assets/images/productos/soporte-celular-chimuelo.webp" alt="Soporte para celular Chimuelo impreso en 3D">
-          </figure>
+            <div class="hero-showcase__footer">
+              <span>Piezas que se sienten tan reales como la idea que las inspiró.</span>
+              <a href="#catalogo">Ver catálogo <b aria-hidden="true">↗</b></a>
+            </div>
+          </div>
 
-          <figure class="hero-card hero-card--extra" data-tilt>
-            <img src="assets/images/productos/llavero-estrellita.webp" alt="Llavero Clicker Estrellita impreso en 3D">
-          </figure>
+          <div class="hero-v2__rail" aria-label="Cambiar diseño destacado">
+            <button class="hero-v2__thumb is-active" type="button" data-hero-image="assets/images/productos/pato-guerrero.webp" data-hero-name="Pato guerrero" data-hero-category="Coleccionable" data-hero-alt="Pato guerrero impreso en 3D">
+              <img src="assets/images/productos/pato-guerrero.webp" alt="">
+            </button>
+            <button class="hero-v2__thumb" type="button" data-hero-image="assets/images/productos/esqueleto-trex-colorido.webp" data-hero-name="T-Rex articulado" data-hero-category="Dinosaurios" data-hero-alt="Esqueleto T-Rex articulado impreso en 3D">
+              <img src="assets/images/productos/esqueleto-trex-colorido.webp" alt="">
+            </button>
+            <button class="hero-v2__thumb" type="button" data-hero-image="assets/images/productos/soporte-celular-chimuelo.webp" data-hero-name="Chimuelo" data-hero-category="Soportes" data-hero-alt="Soporte Chimuelo impreso en 3D">
+              <img src="assets/images/productos/soporte-celular-chimuelo.webp" alt="">
+            </button>
+            <button class="hero-v2__thumb" type="button" data-hero-image="assets/images/productos/llavero-estrellita.webp" data-hero-name="Estrellita Clicker" data-hero-category="Llaveros" data-hero-alt="Llavero Estrellita Clicker impreso en 3D">
+              <img src="assets/images/productos/llavero-estrellita.webp" alt="">
+            </button>
+            <button class="hero-v2__thumb" type="button" data-hero-image="assets/images/productos/samurai-articulado-nuevo.webp" data-hero-name="Samurái articulado" data-hero-category="Articulados" data-hero-alt="Samurái articulado impreso en 3D">
+              <img src="assets/images/productos/samurai-articulado-nuevo.webp" alt="">
+            </button>
+          </div>
 
-          <div class="hero-chip hero-chip--one">Capas de ideas</div>
-          <div class="hero-chip hero-chip--two">Hecho para sorprender</div>
+          <div class="hero-v2__float hero-v2__float--a"><span>✦</span><strong>Diseños únicos</strong><small>para sorprender</small></div>
+          <div class="hero-v2__float hero-v2__float--b"><strong>Color + escala</strong><span>personalizables</span></div>
         </div>
       </div>
     </section>
@@ -265,6 +289,6 @@
 
   <script src="assets/js/config.js?v=20260927c"></script>
   <script src="assets/js/catalogo.js?v=20260927c"></script>
-  <script src="assets/js/app.js?v=20260927c"></script>
+  <script src="assets/js/app.js?v=20260928hero2"></script>
 </body>
 </html>
